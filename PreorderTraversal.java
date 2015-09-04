@@ -16,6 +16,8 @@ public class PreorderTraversal {
      * @param root: The root of binary tree.
      * @return: Preorder in ArrayList which contains node values.
      */
+
+    // Traverse
     public ArrayList<Integer> preorderTraversal(TreeNode root) {
         // write your code here
         ArrayList<Integer> results = new ArrayList<Integer>();
@@ -34,6 +36,22 @@ public class PreorderTraversal {
         travel(a, node.left);
         travel(a, node.right);
         return;
+    }
+
+    // Devide and Conquer
+    public ArrayList<Integer> preorderTraversal1(TreeNode root) {
+        ArrayList<Integer> results = new ArrayList<Integer>();
+
+        if (root == null) {
+            return results;
+        }
+
+        results.add(root.val);
+        results.addAll(preorderTraversal1(root.left));
+        results.addAll(preorderTraversal1(root.right));
+
+        return results;
+
     }
 
 
