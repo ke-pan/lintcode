@@ -37,4 +37,28 @@ public class InorderTraversal {
 
         return;
     }
+
+    // stack
+    public ArrayList<Integer> preorderTraversal1(TreeNode root) {
+        ArrayList<Integer> results = new ArrayList<Integer>();
+
+        // if (root == null) {
+        //     return results;
+        // }
+
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+
+        // stack.push(root);
+        while (root != null || !stack.empty()) {
+            while(root != null) {
+                stack.push(root);
+                root = root.left;
+            }
+            root = stack.pop();
+            results.add(root.val);
+            root = root.right;
+        }
+
+        return results;
+    }
 }
